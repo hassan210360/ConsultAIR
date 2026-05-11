@@ -1,0 +1,1 @@
+Place hero.jpg aviation image here.

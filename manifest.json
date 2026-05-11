@@ -1,0 +1,9 @@
+
+{
+"name":"ConsultAIR Premium",
+"short_name":"ConsultAIR",
+"display":"standalone",
+"theme_color":"#0B1F33",
+"background_color":"#0B1F33",
+"start_url":"index.html"
+}

@@ -1,841 +1,281 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Air Consult — Aviation Consulting & Airline Management</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --navy:#0A1628;--navy2:#0D2137;--blue:#1A6BAD;--light-blue:#2E8BC0;
-  --gold:#C9A84C;--gold-light:#F0D48A;--off-white:#F7F9FC;
-  --mid-grey:#8FA3B4;--dark-grey:#2D3748;--white:#fff;
-}
-html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;color:var(--dark-grey);background:#fff;line-height:1.6}
+<title>ConsultAIR | Premium Aviation Solutions</title>
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,22,40,0.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(201,168,76,0.2)}
-.nav-inner{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px}
-.logo{display:flex;align-items:center;gap:10px}
-.logo-text{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#fff;letter-spacing:0.05em}
-.logo-text span{color:var(--gold)}
-.logo-tagline{font-size:0.65rem;color:var(--mid-grey);letter-spacing:0.12em;text-transform:uppercase;margin-top:1px}
-.nav-links{display:flex;align-items:center;gap:2rem}
-.nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.88rem;font-weight:500;letter-spacing:0.03em;transition:color 0.2s}
-.nav-links a:hover{color:var(--gold)}
-.nav-cta{background:var(--gold);color:var(--navy)!important;padding:0.5rem 1.25rem;border-radius:4px;font-weight:600!important;transition:background 0.2s!important}
-.nav-cta:hover{background:var(--gold-light)!important;color:var(--navy)!important}
+<meta name="description" content="Premium aviation consulting and airport operational solutions across MENA, Africa, and Europe.">
 
-/* HERO */
-.hero{min-height:100vh;background:var(--navy);display:flex;align-items:center;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;left:0;top:0;width:38%;height:100%;background:var(--navy2)}
-.hero::after{content:'';position:absolute;left:38%;top:0;width:4px;height:100%;background:var(--gold)}
-.hero-inner{max-width:1200px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1;width:100%}
-.hero-content{padding-left:1rem}
-.hero-eyebrow{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:1.2rem}
-.hero-title{font-family:'Playfair Display',serif;font-size:4.2rem;font-weight:900;color:#fff;line-height:1.08;margin-bottom:1.5rem}
-.hero-title span{color:var(--gold)}
-.hero-subtitle{font-size:1.05rem;color:var(--mid-grey);line-height:1.7;margin-bottom:2.5rem;max-width:480px}
-.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
-.btn-primary{background:var(--gold);color:var(--navy);padding:0.85rem 2rem;border-radius:4px;font-weight:600;font-size:0.9rem;text-decoration:none;letter-spacing:0.03em;transition:background 0.2s}
-.btn-primary:hover{background:var(--gold-light)}
-.btn-outline{border:1.5px solid rgba(255,255,255,0.3);color:#fff;padding:0.85rem 2rem;border-radius:4px;font-weight:500;font-size:0.9rem;text-decoration:none;transition:border-color 0.2s}
-.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
-.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem}
-.stat{border-top:1px solid rgba(201,168,76,0.3);padding-top:1rem}
-.stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--gold);line-height:1}
-.stat-label{font-size:0.75rem;color:var(--mid-grey);margin-top:4px;letter-spacing:0.08em;text-transform:uppercase}
-.hero-right{position:relative;padding-left:2rem}
-.hero-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:1.75rem;margin-bottom:1rem}
-.hero-card-label{font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.75rem}
-.hero-card-items{display:flex;flex-direction:column;gap:0.5rem}
-.hero-card-item{display:flex;align-items:center;gap:0.75rem;font-size:0.9rem;color:rgba(255,255,255,0.8)}
-.hero-card-item::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0}
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="css/style.css">
 
-/* SECTION STYLES */
-section{padding:5rem 2rem}
-.section-inner{max-width:1200px;margin:0 auto}
-.section-eyebrow{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.75rem}
-.section-title{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:1rem}
-.section-sub{font-size:1rem;color:#5a6b7a;max-width:580px;line-height:1.7}
-.gold-rule{width:60px;height:3px;background:var(--gold);margin:1.5rem 0 2.5rem}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-/* ABOUT */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-top:3rem}
-.about-text p{color:#5a6b7a;line-height:1.8;margin-bottom:1rem;font-size:0.97rem}
-.vm-cards{display:grid;gap:1rem;margin-top:2rem}
-.vm-card{padding:1.25rem 1.5rem;border-radius:6px;border-left:3px solid var(--gold)}
-.vm-card.vision{background:#EBF4FF;border-color:var(--blue)}
-.vm-card.mission{background:#FFFBF0;border-color:var(--gold)}
-.vm-card-label{font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:600;margin-bottom:0.4rem}
-.vm-card.vision .vm-card-label{color:var(--blue)}
-.vm-card.mission .vm-card-label{color:#996B1E}
-.vm-card p{font-size:0.88rem;color:var(--dark-grey);line-height:1.65}
-.pillars{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.pillar{background:var(--navy);color:#fff;padding:1.5rem;border-radius:6px;position:relative;overflow:hidden}
-.pillar::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold)}
-.pillar-num{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;color:rgba(201,168,76,0.2);line-height:1;margin-bottom:0.5rem}
-.pillar-title{font-size:0.92rem;font-weight:600;color:#fff;margin-bottom:0.3rem}
-.pillar-desc{font-size:0.8rem;color:var(--mid-grey);line-height:1.5}
-
-/* SERVICES */
-.services-bg{background:var(--off-white)}
-.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#E2E8F0;border:1px solid #E2E8F0;border-radius:8px;overflow:hidden;margin-top:3rem}
-.service-card{background:#fff;padding:1.75rem 1.5rem;transition:background 0.2s}
-.service-card:hover{background:#F0F7FF}
-.service-icon{width:40px;height:40px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:1.1rem;color:var(--gold)}
-.service-title{font-size:0.95rem;font-weight:600;color:var(--navy);margin-bottom:0.5rem;line-height:1.3}
-.service-items{list-style:none;display:flex;flex-direction:column;gap:0.3rem}
-.service-items li{font-size:0.78rem;color:#5a6b7a;padding-left:0.8rem;position:relative}
-.service-items li::before{content:'—';position:absolute;left:0;color:var(--gold);font-size:0.65rem}
-
-/* MARKETS */
-.markets-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3rem}
-.market-card{border-radius:8px;overflow:hidden;border:1px solid #E2E8F0}
-.market-header{background:var(--navy);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem}
-.market-flag{width:36px;height:36px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:700;color:var(--navy)}
-.market-name{font-size:1rem;font-weight:600;color:#fff}
-.market-countries{font-size:0.78rem;color:var(--gold);margin-top:2px}
-.market-body{padding:1.25rem 1.5rem;background:#fff}
-.market-opp{font-size:0.85rem;color:#5a6b7a;line-height:1.65}
-
-/* CLIENTS */
-.clients-bg{background:var(--navy)}
-.clients-bg .section-title{color:#fff}
-.clients-bg .gold-rule{background:var(--gold)}
-.clients-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
-.client-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:1.5rem;border-top:3px solid var(--gold)}
-.client-type{font-size:1rem;font-weight:600;color:var(--gold);margin-bottom:1rem}
-.client-items{list-style:none;display:flex;flex-direction:column;gap:0.4rem}
-.client-items li{font-size:0.83rem;color:rgba(255,255,255,0.75);padding-left:0.9rem;position:relative}
-.client-items li::before{content:'—';position:absolute;left:0;color:var(--gold);font-size:0.7rem}
-
-/* BUDGET */
-.budget-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem}
-.budget-card{border-radius:8px;overflow:hidden;border:1px solid #E2E8F0}
-.budget-card-header{padding:1.25rem 1.5rem;font-size:0.85rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase}
-.budget-card.setup .budget-card-header{background:var(--blue);color:#fff}
-.budget-card.opex .budget-card-header{background:var(--navy);color:var(--gold)}
-.budget-rows{background:#fff}
-.budget-row{display:flex;justify-content:space-between;align-items:center;padding:0.85rem 1.5rem;border-bottom:1px solid #F0F4F8;font-size:0.85rem}
-.budget-row:nth-child(even){background:var(--off-white)}
-.budget-row:last-child{border-bottom:none;font-weight:600;background:var(--navy);color:#fff;padding:1rem 1.5rem}
-.budget-row:last-child .budget-cost{color:var(--gold)}
-.budget-label{color:var(--dark-grey)}
-.budget-row:last-child .budget-label{color:#fff}
-.budget-cost{color:var(--blue);font-weight:500}
-
-/* COMPETITIVE */
-.comp-bg{background:var(--off-white)}
-.comp-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem}
-.comp-table{background:#fff;border-radius:8px;overflow:hidden;border:1px solid #E2E8F0}
-.comp-table-header{background:var(--navy);padding:1rem 1.5rem;font-size:0.85rem;font-weight:600;color:var(--gold);letter-spacing:0.05em;text-transform:uppercase}
-.comp-row{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid #F0F4F8;font-size:0.83rem}
-.comp-row:nth-child(even){background:var(--off-white)}
-.comp-row div{padding:0.85rem 1rem}
-.comp-row div:first-child{font-weight:500;color:var(--navy)}
-.comp-row div:last-child{color:#5a6b7a}
-.advantages{display:flex;flex-direction:column;gap:1rem}
-.adv-item{display:flex;gap:1rem;align-items:flex-start;background:#fff;padding:1.25rem;border-radius:8px;border:1px solid #E2E8F0}
-.adv-num{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--gold);line-height:1;flex-shrink:0;min-width:24px}
-.adv-content h4{font-size:0.88rem;font-weight:600;color:var(--navy);margin-bottom:0.25rem}
-.adv-content p{font-size:0.8rem;color:#5a6b7a;line-height:1.55}
-
-/* TIMELINE */
-.timeline{margin-top:3rem;display:flex;flex-direction:column;gap:0}
-.timeline-item{display:grid;grid-template-columns:120px 40px 1fr;gap:1.5rem;align-items:flex-start}
-.timeline-time{text-align:right;padding-top:0.5rem}
-.timeline-badge{font-size:0.75rem;font-weight:600;color:var(--navy);background:var(--gold-light);padding:0.25rem 0.6rem;border-radius:20px;display:inline-block}
-.timeline-connector{display:flex;flex-direction:column;align-items:center;gap:0}
-.timeline-dot{width:14px;height:14px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:0.45rem}
-.timeline-line{width:2px;background:#E2E8F0;flex:1;min-height:40px}
-.timeline-item:last-child .timeline-line{display:none}
-.timeline-content{padding-bottom:2.5rem}
-.timeline-phase{font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:0.25rem}
-.timeline-title{font-size:1.1rem;font-weight:600;color:var(--navy);margin-bottom:0.5rem}
-.timeline-items{list-style:none;display:flex;flex-direction:column;gap:0.3rem}
-.timeline-items li{font-size:0.83rem;color:#5a6b7a;padding-left:1rem;position:relative}
-.timeline-items li::before{content:'→';position:absolute;left:0;color:var(--gold);font-size:0.7rem;top:2px}
-
-/* 60-DAY WEEK 1 */
-.week1-grid{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:3rem}
-.week1-day{display:grid;grid-template-columns:120px 1fr;gap:1.5rem;background:#fff;border:1px solid #E2E8F0;border-radius:8px;overflow:hidden}
-.week1-day-label{background:var(--navy);padding:1.25rem;display:flex;flex-direction:column;justify-content:center}
-.day-num{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);font-weight:600}
-.day-title{font-size:0.92rem;font-weight:600;color:#fff;margin-top:0.25rem;line-height:1.3}
-.week1-day-tasks{padding:1.25rem 1.5rem}
-.task-items{list-style:none;display:flex;flex-direction:column;gap:0.35rem}
-.task-items li{font-size:0.83rem;color:var(--dark-grey);padding-left:1.2rem;position:relative;line-height:1.5}
-.task-items li::before{content:'☐';position:absolute;left:0;color:var(--blue);font-size:0.75rem}
-
-/* CTA */
-.cta-section{background:var(--navy);text-align:center;padding:6rem 2rem}
-.cta-section .section-title{color:#fff;font-size:2.8rem}
-.cta-section .section-sub{color:var(--mid-grey);margin:0 auto;max-width:560px;font-size:1rem}
-.cta-section .gold-rule{margin:1.5rem auto 2.5rem}
-.cta-actions{display:flex;gap:1rem;justify-content:center;margin-top:2rem;flex-wrap:wrap}
-
-/* CONTACT */
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3rem}
-.contact-info h3{font-size:1.1rem;font-weight:600;color:var(--navy);margin-bottom:1.5rem}
-.contact-items{display:flex;flex-direction:column;gap:1rem}
-.contact-item{display:flex;gap:1rem;align-items:flex-start}
-.contact-icon{width:36px;height:36px;border-radius:6px;background:var(--navy);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:0.9rem;flex-shrink:0}
-.contact-detail strong{display:block;font-size:0.83rem;color:var(--navy);font-weight:600}
-.contact-detail span{font-size:0.83rem;color:#5a6b7a}
-.contact-form{background:var(--off-white);padding:2rem;border-radius:8px}
-.form-group{margin-bottom:1.25rem}
-.form-group label{display:block;font-size:0.8rem;font-weight:600;color:var(--navy);margin-bottom:0.4rem;letter-spacing:0.03em}
-.form-group input,.form-group select,.form-group textarea{width:100%;padding:0.75rem 1rem;border:1.5px solid #D0DAE4;border-radius:6px;font-size:0.88rem;font-family:'DM Sans',sans-serif;color:var(--dark-grey);background:#fff;outline:none;transition:border-color 0.2s}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--blue)}
-.form-group textarea{resize:vertical;min-height:100px}
-.form-submit{width:100%;background:var(--navy);color:#fff;border:none;padding:0.9rem;border-radius:6px;font-size:0.9rem;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;letter-spacing:0.03em;transition:background 0.2s}
-.form-submit:hover{background:var(--blue)}
-
-/* FOOTER */
-footer{background:var(--navy2);border-top:1px solid rgba(201,168,76,0.2);padding:2.5rem 2rem}
-.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
-.footer-brand{font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;font-weight:700}
-.footer-brand span{color:var(--gold)}
-.footer-copy{font-size:0.78rem;color:var(--mid-grey)}
-.footer-links{display:flex;gap:1.5rem}
-.footer-links a{font-size:0.78rem;color:var(--mid-grey);text-decoration:none;transition:color 0.2s}
-.footer-links a:hover{color:var(--gold)}
-
-/* SCROLL REVEAL */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
-.reveal.visible{opacity:1;transform:none}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-inner">
-    <div class="logo">
-      <div>
-        <div class="logo-text">AIR<span>CONSULT</span></div>
-        <div class="logo-tagline">Aviation Consulting & Management</div>
-      </div>
-    </div>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#markets">Markets</a>
-      <a href="#clients">Clients</a>
-      <a href="#roadmap">Roadmap</a>
-      <a href="#contact" class="nav-cta">Contact Us</a>
-    </div>
-  </div>
+<header class="navbar">
+<div class="container nav-wrapper">
+
+<div class="brand">
+<div class="brand-main">Consult<span>AIR</span></div>
+<small>Integrated Aviation & Airport Solutions</small>
+</div>
+
+<button class="menu-toggle" id="menuToggle">☰</button>
+
+<nav class="nav-links" id="navLinks">
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#cases">Cases</a>
+<a href="#esg">ESG</a>
+<a href="#contact" class="btn-nav">Contact</a>
 </nav>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-inner">
-    <div class="hero-content">
-      <div class="hero-eyebrow">Aviation Consulting & Airline Management — Cairo, Egypt</div>
-      <h1 class="hero-title">Built for<br>Aviation.<br><span>Built for MENA.</span></h1>
-      <p class="hero-subtitle">Air Consult is a specialized aviation consultancy focused on airline setup, cargo operations, and operational management across the Middle East, North Africa, and Europe.</p>
-      <div class="hero-actions">
-        <a href="#services" class="btn-primary">Explore Services</a>
-        <a href="#contact" class="btn-outline">Get In Touch</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat">
-          <div class="stat-num">8+</div>
-          <div class="stat-label">Service Lines</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">MENA</div>
-          <div class="stat-label">Primary Focus</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">60</div>
-          <div class="stat-label">Day Launch Plan</div>
-        </div>
-      </div>
-    </div>
-    <div class="hero-right">
-      <div class="hero-card">
-        <div class="hero-card-label">Core Expertise</div>
-        <div class="hero-card-items">
-          <div class="hero-card-item">AOC & Airline Certification</div>
-          <div class="hero-card-item">Cargo Aviation Strategy</div>
-          <div class="hero-card-item">Airline Operational Management</div>
-          <div class="hero-card-item">Fleet & Technical Advisory</div>
-        </div>
-      </div>
-      <div class="hero-card">
-        <div class="hero-card-label">Operating Regions</div>
-        <div class="hero-card-items">
-          <div class="hero-card-item">Egypt & North Africa</div>
-          <div class="hero-card-item">Gulf / GCC Countries</div>
-          <div class="hero-card-item">Levant & Iraq</div>
-          <div class="hero-card-item">Europe — MENA Corridor</div>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
+</header>
+
+<section class="hero">
+
+<div class="container hero-grid">
+
+<div class="hero-content">
+
+<p class="eyebrow">Airport • Cargo • Ground Handling • ESG Aviation</p>
+
+<h1>Future-Ready Aviation Consulting</h1>
+
+<p class="hero-text">
+ConsultAIR delivers operational aviation excellence across airport services,
+air cargo logistics, airline support, aviation sustainability,
+and integrated mobility ecosystems.
+</p>
+
+<div class="hero-actions">
+<a href="#services" class="btn-primary">Explore Services</a>
+<a href="#contact" class="btn-secondary">Get In Touch</a>
+</div>
+
+</div>
+
+<div class="hero-box premium-hover">
+
+<h3>Core Expertise</h3>
+
+<div class="icon-list">
+<div>✈ Airline Operations</div>
+<div>🛬 Airport Services</div>
+<div>📦 Cargo Logistics</div>
+<div>🌱 Green Aviation</div>
+<div>🛰 Smart Aviation Systems</div>
+<div>👨‍✈ Ground Handling</div>
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="section-inner">
-    <div class="reveal">
-      <div class="section-eyebrow">Who We Are</div>
-      <h2 class="section-title">Practical Aviation Specialists.<br>Not Theorists.</h2>
-      <div class="gold-rule"></div>
-    </div>
-    <div class="about-grid">
-      <div class="about-text reveal">
-        <p>Air Consult is a specialized aviation consultancy and operational management company focused on supporting aviation projects across the Middle East, North Africa, and Europe. We are operational people who actually build and run airlines — not consultants with PowerPoint strategies.</p>
-        <p>Founded in Cairo, Egypt, Air Consult combines deep regulatory knowledge, practical airline management capability, and cargo aviation expertise with established regional relationships across MENA and Europe.</p>
-        <div class="vm-cards">
-          <div class="vm-card vision">
-            <div class="vm-card-label">Vision</div>
-            <p>To become one of the leading aviation consultancy and airline management firms connecting Europe, the Middle East, and Africa through practical aviation solutions and operational excellence.</p>
-          </div>
-          <div class="vm-card mission">
-            <div class="vm-card-label">Mission</div>
-            <p>To provide airlines, investors, governments, and aviation stakeholders with turnkey aviation solutions — from airline setup and certification to operational management and strategic growth.</p>
-          </div>
-        </div>
-      </div>
-      <div class="pillars reveal">
-        <div class="pillar">
-          <div class="pillar-num">01</div>
-          <div class="pillar-title">Operational Experience</div>
-          <div class="pillar-desc">We have built and operated airlines. Our advice comes from the cockpit, not the boardroom.</div>
-        </div>
-        <div class="pillar">
-          <div class="pillar-num">02</div>
-          <div class="pillar-title">MENA + Europe Connectivity</div>
-          <div class="pillar-desc">Uniquely positioned at the intersection of Europe and MENA — invaluable for cargo and ACMI.</div>
-        </div>
-        <div class="pillar">
-          <div class="pillar-num">03</div>
-          <div class="pillar-title">Cargo Aviation Specialty</div>
-          <div class="pillar-desc">Deep expertise in cargo — a significantly underserved niche in the MENA region.</div>
-        </div>
-        <div class="pillar">
-          <div class="pillar-num">04</div>
-          <div class="pillar-title">Fast Execution</div>
-          <div class="pillar-desc">Most aviation consultancies move slowly. Air Consult is built for speed and results.</div>
-        </div>
-      </div>
-    </div>
-  </div>
+<section class="section" id="about">
+
+<div class="container">
+
+<div class="section-heading">
+<p class="eyebrow green">Who We Are</p>
+<h2>Operational Aviation Specialists</h2>
+
+<p>
+ConsultAIR supports airports, airlines, cargo operators,
+government entities, and logistics providers with integrated operational solutions.
+</p>
+</div>
+
+<div class="cards-grid">
+
+<div class="info-card blue-card premium-hover">
+<div class="animated-icon">✈</div>
+<h3>Aviation Operations</h3>
+<p>Airline operational advisory and optimization.</p>
+</div>
+
+<div class="info-card green-card premium-hover">
+<div class="animated-icon">🛬</div>
+<h3>Airport Transformation</h3>
+<p>Passenger flow and airport operations enhancement.</p>
+</div>
+
+<div class="info-card gold-card premium-hover">
+<div class="animated-icon">📦</div>
+<h3>Cargo Logistics</h3>
+<p>Agro-air corridors and cargo optimization strategies.</p>
+</div>
+
+<div class="info-card navy-card premium-hover">
+<div class="animated-icon">🌍</div>
+<h3>Regional Connectivity</h3>
+<p>MENA, Africa, and Europe aviation ecosystems.</p>
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- SERVICES -->
-<section class="services-bg" id="services">
-  <div class="section-inner">
-    <div class="reveal">
-      <div class="section-eyebrow">What We Offer</div>
-      <h2 class="section-title">Eight Service Lines.<br>One Aviation Partner.</h2>
-      <div class="gold-rule"></div>
-      <p class="section-sub">From airline certification to cargo hub development, Air Consult provides end-to-end aviation solutions across the full operational spectrum.</p>
-    </div>
-    <div class="services-grid reveal">
-      <div class="service-card">
-        <div class="service-icon">✈</div>
-        <div class="service-title">AOC & Airline Setup</div>
-        <ul class="service-items">
-          <li>Full AOC regulatory support</li>
-          <li>Manual development & SMS</li>
-          <li>Postholder recruitment</li>
-          <li>IOSA / EASA compliance</li>
-          <li>OCC implementation</li>
-        </ul>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">⚙</div>
-        <div class="service-title">Airline Management</div>
-        <ul class="service-items">
-          <li>Full & interim management</li>
-          <li>Commercial optimization</li>
-          <li>Revenue & cost management</li>
-          <li>Network & route planning</li>
-          <li>ACMI strategy</li>
-        </ul>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">📦</div>
-        <div class="service-title">Cargo Consulting</div>
-        <ul class="service-items">
-          <li>Cargo hub development</li>
-          <li>Route & network planning</li>
-          <li>GSSA representation</li>
-          <li>ULD management systems</li>
-          <li>Cargo profitability studies</li>
-        </ul>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🔧</div>
-        <div class="service-title">Technical & Fleet</div>
-        <ul class="service-items">
-          <li>Aircraft sourcing</li>
-          <li>Lease negotiations</li>
-          <li>CAMO setup</li>
-          <li>MRO partnerships</li>
-          <li>Pre-purchase inspections</li>
-        </ul>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🛬</div>
-        <div class="service-title">Ground Handling</div>
-        <ul class="service-items">
-          <li>Ground handling setup</li>
-          <li>Self-handling implementation</li>
-          <li>Ramp operations</li>
-          <li>SOP development</li>
-          <li>SLA negotiation</li>
-        </ul>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🍽</div>
-        <div class="service-title">Catering & Hospitality</div>
-        <ul class="service-items">
-          <li>Catering setup</li>
-          <li>Supplier sourcing</li>
-          <li>Inflight service concepts</li>
-          <li>VIP aviation catering</li>
-          <li>Lounge consulting</li>
-        </ul>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">📊</div>
-        <div class="service-title">Investment Advisory</div>
-        <ul class="service-items">
-          <li>Feasibility studies</li>
-          <li>Financial modeling</li>
-          <li>Due diligence</li>
-          <li>M&A advisory</li>
-          <li>Turnaround strategy</li>
-        </ul>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">👥</div>
-        <div class="service-title">Training & Human Capital</div>
-        <ul class="service-items">
-          <li>Aviation recruitment</li>
-          <li>Postholder sourcing</li>
-          <li>Training programs</li>
-          <li>HR structure setup</li>
-          <li>Leadership development</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<section class="section light" id="services">
+
+<div class="container">
+
+<div class="section-heading">
+<p class="eyebrow">Services</p>
+<h2>Integrated Service Portfolio</h2>
+</div>
+
+<div class="cards-grid">
+
+<a class="service-card blue-card premium-hover" href="pages/airport-services.html">
+<div class="animated-icon">🛬</div>
+<h3>Airport Services</h3>
+<p>Operational transformation and airport advisory.</p>
+</a>
+
+<a class="service-card green-card premium-hover" href="pages/cargo-logistics.html">
+<div class="animated-icon">📦</div>
+<h3>Cargo & Logistics</h3>
+<p>Perishable logistics and cargo aviation systems.</p>
+</a>
+
+<a class="service-card gold-card premium-hover" href="pages/esg-aviation.html">
+<div class="animated-icon">🌱</div>
+<h3>Green Aviation</h3>
+<p>Sustainable aviation and ESG integration.</p>
+</a>
+
+<a class="service-card navy-card premium-hover" href="pages/ground-handling.html">
+<div class="animated-icon">👨‍✈</div>
+<h3>Ground Handling</h3>
+<p>Ramp operations and handling optimization.</p>
+</a>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- MARKETS -->
-<section id="markets">
-  <div class="section-inner">
-    <div class="reveal">
-      <div class="section-eyebrow">Where We Operate</div>
-      <h2 class="section-title">Strategic Presence Across<br>MENA & Europe</h2>
-      <div class="gold-rule"></div>
-    </div>
-    <div class="markets-grid reveal">
-      <div class="market-card">
-        <div class="market-header">
-          <div class="market-flag">EG</div>
-          <div>
-            <div class="market-name">Egypt & North Africa</div>
-            <div class="market-countries">Egypt · Libya · Algeria · Tunisia</div>
-          </div>
-        </div>
-        <div class="market-body">
-          <p class="market-opp">Home base and primary market. Cairo serves as the gateway between Africa, the Middle East, and Europe. Strong demand for AOC consulting, cargo hub development, and airline startup advisory.</p>
-        </div>
-      </div>
-      <div class="market-card">
-        <div class="market-header">
-          <div class="market-flag">GCC</div>
-          <div>
-            <div class="market-name">Gulf / GCC Countries</div>
-            <div class="market-countries">UAE · Saudi Arabia · Kuwait · Qatar</div>
-          </div>
-        </div>
-        <div class="market-body">
-          <p class="market-opp">The most active aviation investment region globally. Air Consult targets airline management contracts, cargo strategy, fleet advisory, and aviation investment advisory for Gulf-based operators and investors.</p>
-        </div>
-      </div>
-      <div class="market-card">
-        <div class="market-header">
-          <div class="market-flag">IQ</div>
-          <div>
-            <div class="market-name">Levant & Iraq</div>
-            <div class="market-countries">Iraq · Kurdistan · Jordan</div>
-          </div>
-        </div>
-        <div class="market-body">
-          <p class="market-opp">Rapidly developing aviation markets with significant demand for airline startup support, regulatory guidance, and operational management. Iraq and Kurdistan represent a substantial growth opportunity.</p>
-        </div>
-      </div>
-      <div class="market-card">
-        <div class="market-header">
-          <div class="market-flag">EU</div>
-          <div>
-            <div class="market-name">Europe</div>
-            <div class="market-countries">Netherlands · Belgium · Eastern Europe</div>
-          </div>
-        </div>
-        <div class="market-body">
-          <p class="market-opp">Strategic secondary market for ACMI operations, cargo connectivity, and EU-MENA aviation links. The Netherlands presence enables access to European aviation clients and authority relationships.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+<section class="section" id="cases">
+
+<div class="container">
+
+<div class="section-heading">
+<p class="eyebrow green">Case Studies</p>
+<h2>Operational Success Examples</h2>
+</div>
+
+<div class="cards-grid">
+
+<div class="case-card blue-card premium-hover">
+<h3>Airport Flow Optimization</h3>
+<p>Improved terminal throughput and reduced congestion.</p>
+</div>
+
+<div class="case-card green-card premium-hover">
+<h3>Agro-Air Corridor</h3>
+<p>Enhanced fresh produce export connectivity.</p>
+</div>
+
+<div class="case-card gold-card premium-hover">
+<h3>Ground Operations Upgrade</h3>
+<p>Reduced turnaround time and improved ramp efficiency.</p>
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- CLIENTS -->
-<section class="clients-bg" id="clients">
-  <div class="section-inner">
-    <div class="reveal">
-      <div class="section-eyebrow" style="color:var(--gold)">Who We Serve</div>
-      <h2 class="section-title" style="color:#fff">Our Target Clients</h2>
-      <div class="gold-rule"></div>
-    </div>
-    <div class="clients-grid reveal">
-      <div class="client-card">
-        <div class="client-type">Airlines</div>
-        <ul class="client-items">
-          <li>Startup airlines</li>
-          <li>Cargo airlines</li>
-          <li>Regional airlines</li>
-          <li>ACMI & charter operators</li>
-        </ul>
-      </div>
-      <div class="client-card">
-        <div class="client-type">Investors & Finance</div>
-        <ul class="client-items">
-          <li>Aviation investors</li>
-          <li>Family offices</li>
-          <li>Government-backed investment groups</li>
-          <li>Infrastructure investors</li>
-        </ul>
-      </div>
-      <div class="client-card">
-        <div class="client-type">Governments & Authorities</div>
-        <ul class="client-items">
-          <li>Civil Aviation Authorities</li>
-          <li>Airport authorities</li>
-          <li>Ministries of Transport</li>
-        </ul>
-      </div>
-      <div class="client-card">
-        <div class="client-type">Airports</div>
-        <ul class="client-items">
-          <li>Secondary airports</li>
-          <li>Cargo airports</li>
-          <li>Emerging airport projects</li>
-        </ul>
-      </div>
-      <div class="client-card">
-        <div class="client-type">Freight & Logistics</div>
-        <ul class="client-items">
-          <li>Freight forwarders</li>
-          <li>Integrators</li>
-          <li>Cargo brokers</li>
-          <li>E-commerce logistics companies</li>
-        </ul>
-      </div>
-      <div class="client-card">
-        <div class="client-type">Aviation Providers</div>
-        <ul class="client-items">
-          <li>Ground handlers</li>
-          <li>MRO companies</li>
-          <li>Catering operators</li>
-          <li>Logistics companies</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<section class="section dark" id="esg">
+
+<div class="container">
+
+<div class="section-heading">
+<p class="eyebrow">ESG Aviation</p>
+<h2>Sustainable Aviation Ecosystems</h2>
+
+<p>
+Green logistics, ESG integration, smart airport systems,
+and operational sustainability frameworks.
+</p>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- BUDGET -->
-<section id="budget">
-  <div class="section-inner">
-    <div class="reveal">
-      <div class="section-eyebrow">Investment Required</div>
-      <h2 class="section-title">Launch Budget Overview</h2>
-      <div class="gold-rule"></div>
-    </div>
-    <div class="budget-grid reveal">
-      <div class="budget-card setup">
-        <div class="budget-card-header">Initial Setup Costs (One-Time)</div>
-        <div class="budget-rows">
-          <div class="budget-row"><span class="budget-label">Company registration & legal</span><span class="budget-cost">USD 10K – 25K</span></div>
-          <div class="budget-row"><span class="budget-label">Branding & website</span><span class="budget-cost">USD 8K – 20K</span></div>
-          <div class="budget-row"><span class="budget-label">Office & infrastructure</span><span class="budget-cost">USD 10K – 25K</span></div>
-          <div class="budget-row"><span class="budget-label">Marketing & travel</span><span class="budget-cost">USD 10K – 20K</span></div>
-          <div class="budget-row"><span class="budget-label">Advisors & consultants</span><span class="budget-cost">USD 10K – 35K</span></div>
-          <div class="budget-row"><span class="budget-label">Total Setup Estimate</span><span class="budget-cost">USD 68K – 125K</span></div>
-        </div>
-      </div>
-      <div class="budget-card opex">
-        <div class="budget-card-header">Monthly Operating Costs (OPEX)</div>
-        <div class="budget-rows">
-          <div class="budget-row"><span class="budget-label">Salaries — core team</span><span class="budget-cost">USD 15K – 40K</span></div>
-          <div class="budget-row"><span class="budget-label">Office rent — Cairo</span><span class="budget-cost">USD 2K – 6K</span></div>
-          <div class="budget-row"><span class="budget-label">Marketing & digital</span><span class="budget-cost">USD 2K – 8K</span></div>
-          <div class="budget-row"><span class="budget-label">Travel & client development</span><span class="budget-cost">USD 3K – 10K</span></div>
-          <div class="budget-row"><span class="budget-label">External advisors</span><span class="budget-cost">USD 5K – 15K</span></div>
-          <div class="budget-row"><span class="budget-label">Total Monthly OPEX</span><span class="budget-cost">USD 27K – 79K/mo</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
+<section class="section" id="contact">
+
+<div class="container contact-grid">
+
+<div>
+
+<p class="eyebrow green">Contact</p>
+
+<h2>Connect With ConsultAIR</h2>
+
+<div class="contact-box blue-card premium-hover">
+<h4>Email</h4>
+<p>info@consultair.aero</p>
+</div>
+
+<div class="contact-box green-card premium-hover">
+<h4>Location</h4>
+<p>Cairo, Egypt</p>
+</div>
+
+</div>
+
+<form class="contact-form premium-hover" action="backend/contact.php" method="POST">
+
+<input type="text" placeholder="Full Name">
+<input type="email" placeholder="Email Address">
+<input type="text" placeholder="Company">
+<textarea placeholder="Tell us about your aviation project"></textarea>
+
+<button type="submit">Submit Inquiry</button>
+
+</form>
+
+</div>
+
 </section>
 
-<!-- COMPETITIVE -->
-<section class="comp-bg" id="competitive">
-  <div class="section-inner">
-    <div class="reveal">
-      <div class="section-eyebrow">Market Position</div>
-      <h2 class="section-title">Competitive Analysis</h2>
-      <div class="gold-rule"></div>
-    </div>
-    <div class="comp-grid reveal">
-      <div>
-        <div class="comp-table">
-          <div class="comp-table-header">Competitor Landscape</div>
-          <div class="comp-row">
-            <div>Global Firms (Oliver Wyman, IBA)</div>
-            <div>High cost, slow, no MENA ground presence</div>
-          </div>
-          <div class="comp-row">
-            <div>European Boutiques</div>
-            <div>No regional relationships, expensive rates</div>
-          </div>
-          <div class="comp-row">
-            <div>UAE-Based Consultants</div>
-            <div>Limited cargo specialty, smaller network</div>
-          </div>
-          <div class="comp-row">
-            <div>Independent Ex-Executives</div>
-            <div>No structured offer, no company backing</div>
-          </div>
-          <div class="comp-row">
-            <div>Local Regulatory Advisors</div>
-            <div>Limited scope, no commercial capability</div>
-          </div>
-        </div>
-      </div>
-      <div class="advantages">
-        <div class="adv-item">
-          <div class="adv-num">01</div>
-          <div class="adv-content">
-            <h4>Practitioners, Not Theorists</h4>
-            <p>We have operated airlines. Our advice is grounded in real execution, not academic frameworks.</p>
-          </div>
-        </div>
-        <div class="adv-item">
-          <div class="adv-num">02</div>
-          <div class="adv-content">
-            <h4>MENA + Europe Bridge</h4>
-            <p>Unique positioning at the Europe–MENA intersection, especially for cargo and ACMI connectivity.</p>
-          </div>
-        </div>
-        <div class="adv-item">
-          <div class="adv-num">03</div>
-          <div class="adv-content">
-            <h4>Cargo Aviation Niche</h4>
-            <p>Specialized cargo expertise — a significantly underserved segment across the MENA region.</p>
-          </div>
-        </div>
-        <div class="adv-item">
-          <div class="adv-num">04</div>
-          <div class="adv-content">
-            <h4>Speed and Execution</h4>
-            <p>Air Consult is built to move fast — faster than European consultancies, with local knowledge.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<a href="https://wa.me/201000000000" class="whatsapp-btn">💬</a>
 
-<!-- ROADMAP -->
-<section id="roadmap">
-  <div class="section-inner">
-    <div class="reveal">
-      <div class="section-eyebrow">Growth Plan</div>
-      <h2 class="section-title">3-Phase Expansion Roadmap</h2>
-      <div class="gold-rule"></div>
-    </div>
-    <div class="timeline reveal">
-      <div class="timeline-item">
-        <div class="timeline-time"><span class="timeline-badge">0–6 Months</span></div>
-        <div class="timeline-connector"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
-        <div class="timeline-content">
-          <div class="timeline-phase">Phase 1</div>
-          <div class="timeline-title">Foundation & Launch</div>
-          <ul class="timeline-items">
-            <li>Company registration and legal setup in Cairo</li>
-            <li>Brand identity, website and LinkedIn launched</li>
-            <li>Advisory board of 3–5 specialists assembled</li>
-            <li>Core team onboarded</li>
-            <li>First 2–3 consultancy projects secured</li>
-          </ul>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-time"><span class="timeline-badge">6–18 Months</span></div>
-        <div class="timeline-connector"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
-        <div class="timeline-content">
-          <div class="timeline-phase">Phase 2</div>
-          <div class="timeline-title">Market Expansion</div>
-          <ul class="timeline-items">
-            <li>Airline management contracts signed</li>
-            <li>Cargo consulting projects active across multiple countries</li>
-            <li>Government and airport advisory projects</li>
-            <li>Strategic MRO and GSSA partnerships</li>
-            <li>Case studies published, market credibility established</li>
-          </ul>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-time"><span class="timeline-badge">18–36 Months</span></div>
-        <div class="timeline-connector"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
-        <div class="timeline-content">
-          <div class="timeline-phase">Phase 3</div>
-          <div class="timeline-title">Regional Leadership</div>
-          <ul class="timeline-items">
-            <li>Multi-country simultaneous project delivery</li>
-            <li>Major cargo hub development projects</li>
-            <li>Long-term airline management retainers</li>
-            <li>Strategic aviation investments supported</li>
-            <li>Recognized as the leading MENA aviation consultancy</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<footer class="footer">
 
-<!-- CTA -->
-<section class="cta-section">
-  <div class="section-inner">
-    <div class="reveal">
-      <div class="section-eyebrow" style="color:var(--gold)">Ready to Start</div>
-      <h2 class="section-title" style="font-size:2.8rem">"Fast, Practical,<br>Execution-Focused."</h2>
-      <div class="gold-rule" style="margin:1.5rem auto 2rem"></div>
-      <p class="section-sub" style="color:var(--mid-grey);margin:0 auto">Whether you are launching an airline, building a cargo network, or seeking aviation investment advisory — Air Consult is your operational partner in the MENA region.</p>
-      <div class="cta-actions">
-        <a href="#contact" class="btn-primary">Start a Conversation</a>
-        <a href="#services" class="btn-outline">View All Services</a>
-      </div>
-    </div>
-  </div>
-</section>
+<div class="container footer-inner">
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="section-inner">
-    <div class="reveal">
-      <div class="section-eyebrow">Get In Touch</div>
-      <h2 class="section-title">Contact Air Consult</h2>
-      <div class="gold-rule"></div>
-    </div>
-    <div class="contact-grid reveal">
-      <div class="contact-info">
-        <h3>Our Offices</h3>
-        <div class="contact-items">
-          <div class="contact-item">
-            <div class="contact-icon">📍</div>
-            <div class="contact-detail">
-              <strong>Head Office — Cairo</strong>
-              <span>Cairo, Egypt (address TBC upon registration)</span>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">✉</div>
-            <div class="contact-detail">
-              <strong>Email</strong>
-              <span>info@airconsult.aero</span>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">🔗</div>
-            <div class="contact-detail">
-              <strong>LinkedIn</strong>
-              <span>linkedin.com/company/airconsult</span>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">🌐</div>
-            <div class="contact-detail">
-              <strong>Website</strong>
-              <span>www.airconsult.aero</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="contact-form">
-        <h3 style="font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:1.5rem">Send an Inquiry</h3>
-        <div class="form-group">
-          <label>Full Name</label>
-          <input type="text" placeholder="Your name">
-        </div>
-        <div class="form-group">
-          <label>Company</label>
-          <input type="text" placeholder="Your company or organization">
-        </div>
-        <div class="form-group">
-          <label>Service of Interest</label>
-          <select>
-            <option value="">Select a service...</option>
-            <option>AOC & Airline Setup</option>
-            <option>Airline Management</option>
-            <option>Cargo Consulting</option>
-            <option>Technical & Fleet Advisory</option>
-            <option>Investment Advisory</option>
-            <option>Ground Handling Setup</option>
-            <option>Training & HR</option>
-            <option>Other / General Inquiry</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Message</label>
-          <textarea placeholder="Describe your project or inquiry..."></textarea>
-        </div>
-        <button class="form-submit" onclick="alert('Thank you! Air Consult will be in touch shortly.')">Send Inquiry</button>
-      </div>
-    </div>
-  </div>
-</section>
+<div>
+<h3>ConsultAIR</h3>
+<p>Integrated Aviation Solutions</p>
+</div>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-brand">AIR<span>CONSULT</span></div>
-    <div class="footer-copy">© 2025 Air Consult. All rights reserved. Cairo, Egypt.</div>
-    <div class="footer-links">
-      <a href="#services">Services</a>
-      <a href="#markets">Markets</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </div>
+<div>
+<p>© 2026 ConsultAIR</p>
+</div>
+
+</div>
+
 </footer>
 
-<script>
-const observer=new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible')}});
-},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click',e=>{
-    e.preventDefault();
-    const target=document.querySelector(a.getAttribute('href'));
-    if(target)target.scrollIntoView({behavior:'smooth',block:'start'});
-  });
-});
-</script>
+<script src="js/script.js"></script>
 </body>
 </html>
