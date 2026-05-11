@@ -1,1 +1,1 @@
-Place hero.jpg aviation image here.
+Place a premium aviation hero image here and rename it hero.jpg
